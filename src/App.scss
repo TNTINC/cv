@@ -1,0 +1,115 @@
+$theme: #ff5341;
+$white: #fffefe;
+$black: rgba(50, 30, 30, 0.8);
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:800|Open+Sans');
+
+$heading-font: "Montserrat", sans-serif;
+
+@mixin media($media) {
+  $small-break: 480px;
+  $large-break: 1024px;
+  @if $media == small {
+    @media screen and (max-width: $small-break) {
+      @content;
+    }
+  } @else if $media == medium {
+    @media screen and (min-width: $small-break + 1) and (max-width: $large-break) {
+      @content;
+    }
+  } @else if $media == large {
+    @media screen and (min-width: $large-break + 1) {
+      @content;
+    }
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: $white;
+  color: $black;
+  font-family: "Open sans", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.Container {
+  width: 100%;
+}
+.Header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  @include media(small) {
+    flex-direction: column;
+  }
+  .spacer {
+    flex: 1 1;
+    @include media(small) {
+      display: none;
+    }
+  }
+  .title {
+    background: $theme;
+    padding: 16px 32px 16px;
+    color: $white;
+    font-family: $heading-font;
+    font-weight: 800;
+    font-size: 22pt;
+    @include media(small) {
+      font-size: 18pt;
+      justify-content: flex-start;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    flex: 2 0;
+    @include media(small) {
+      display: none;
+    }
+    ul {
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: items;
+      list-style: none;
+      li {
+        padding: 24px;
+        height: auto;
+      }
+    }
+  }
+}
+.Intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  .name {
+    @include media(large) {
+      padding: 48px;
+      background: $theme;
+      color: white;
+      font-family: $heading-font;
+      font-weight: 800;
+      font-size: 30pt;
+      margin-bottom: 10vh;
+    }
+  }
+}
+.Bio {
+}
+.Contact {
+}
+
+h1 {
+  margin: 0;
+}

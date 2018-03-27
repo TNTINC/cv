@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:800|Open+Sans");
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #fffefe;
+  color: rgba(50, 30, 30, 0.8);
+  font-family: "Open sans", Arial, Helvetica, sans-serif;
+  box-sizing: border-box; }
+
+.Container {
+  width: 100%; }
+
+.Header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+  @media screen and (max-width: 480px) {
+    .Header {
+      flex-direction: column; } }
+  .Header .spacer {
+    flex: 1 1; }
+    @media screen and (max-width: 480px) {
+      .Header .spacer {
+        display: none; } }
+  .Header .title {
+    background: #ff5341;
+    padding: 16px 32px 16px;
+    color: #fffefe;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    font-size: 22pt;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    @media screen and (max-width: 480px) {
+      .Header .title {
+        font-size: 18pt;
+        justify-content: flex-start; } }
+  .Header .nav {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    flex: 2 0; }
+    @media screen and (max-width: 480px) {
+      .Header .nav {
+        display: none; } }
+    .Header .nav ul {
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: items;
+      list-style: none; }
+      .Header .nav ul li {
+        padding: 24px;
+        height: auto; }
+
+.Intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; }
+  @media screen and (min-width: 1025px) {
+    .Intro .name {
+      padding: 48px;
+      background: #ff5341;
+      color: white;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      font-size: 30pt;
+      margin-bottom: 10vh; } }
+
+h1 {
+  margin: 0; }
+
+/*# sourceMappingURL=App.css.map */
