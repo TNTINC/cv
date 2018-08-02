@@ -8,17 +8,19 @@ class App extends Component {
   render() {
     return (
       <div className="Container">
-      <Header />
+        <Header />
 
-      <section className="Bio">
-        <h1> I make stuff sometimes,<br />
-               here's a list. </h1>
-      </section>
+        <section className="Bio">
+          <h1>
+            I make stuff sometimes,<br />here's a list.
+          </h1>
+        </section>
 
-      <Portfolio />
-      <footer className="Footer">
-        <p> Friðfinnur M. | 2018 | notandinotandi@gmail.com </p>
-      </footer>
+        <Portfolio />
+
+        <footer className="Footer">
+          <p> Friðfinnur M. | 2018 | notandinotandi@gmail.com </p>
+        </footer>
       </div>
     );
   }
