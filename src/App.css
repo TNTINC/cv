@@ -4,75 +4,149 @@ body {
   margin: 0;
   padding: 0;
   background: #fffefe;
-  color: rgba(50, 30, 30, 0.8);
+  color: rgba(40, 30, 30, 0.8);
   font-family: "Open sans", Arial, Helvetica, sans-serif;
   box-sizing: border-box; }
 
 .Container {
-  width: 100%; }
+  display: grid;
+  max-width: 100vw; }
 
 .Header {
   position: fixed;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around; }
-  @media screen and (max-width: 480px) {
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  grid-template-rows: 60px;
+  grid-template-areas: "Logo Nav";
+  background: white; }
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
     .Header {
-      flex-direction: column; } }
-  .Header .spacer {
-    flex: 1 1; }
-    @media screen and (max-width: 480px) {
-      .Header .spacer {
-        display: none; } }
+      grid-template-columns: 1fr 64px 3fr 1fr;
+      grid-template-areas: ". Logo Nav ."; } }
+  @media screen and (min-width: 1025px) {
+    .Header {
+      grid-template-columns: 1fr 64px 3fr 1fr;
+      grid-template-areas: ". Logo Nav ."; } }
   .Header .title {
+    grid-area: Logo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: #ff5341;
-    padding: 16px 32px 16px;
     color: #fffefe;
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
     font-size: 22pt;
-    display: flex;
-    align-items: center;
-    justify-content: center; }
+    padding: 16px 24px 16px; }
     @media screen and (max-width: 480px) {
       .Header .title {
-        font-size: 18pt;
-        justify-content: flex-start; } }
+        font-size: 18pt; } }
   .Header .nav {
+    grid-area: Nav;
+    flex: 2 0;
     display: flex;
     flex-direction: row-reverse;
-    align-items: center;
-    flex: 2 0; }
+    align-items: center; }
     @media screen and (max-width: 480px) {
       .Header .nav {
         display: none; } }
     .Header .nav ul {
-      margin: 0;
       display: flex;
       flex-direction: row;
-      align-items: items;
+      align-items: right;
+      margin: 0;
+      height: 100%;
       list-style: none; }
-      .Header .nav ul li {
-        padding: 24px;
-        height: auto; }
+      .Header .nav ul a {
+        height: 100%;
+        width: 100%;
+        background: white;
+        color: rgba(40, 30, 30, 0.8);
+        text-decoration-line: none;
+        transition: 120ms ease-out; }
+        .Header .nav ul a:hover {
+          background: #ff5341;
+          color: #fffefe; }
+        .Header .nav ul a li {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 16px; }
 
-.Intro {
+.Bio {
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; }
+  flex-direction: column;
+  margin-top: 96px;
+  margin-bottom: 32px;
+  margin-left: 16px; }
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    .Bio {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto; } }
   @media screen and (min-width: 1025px) {
-    .Intro .name {
-      padding: 48px;
-      background: #ff5341;
-      color: white;
+    .Bio {
+      max-width: 960px;
+      margin-top: 128px;
+      margin-left: auto;
+      margin-right: auto; } }
+
+.Portfolio {
+  max-width: 100vw;
+  display: grid;
+  margin: auto;
+  grid-template-columns: 1fr; }
+  @media screen and (min-width: 1025px) {
+    .Portfolio {
+      grid-template-columns: 1fr 1fr; } }
+  .Portfolio .Project {
+    box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+    max-width: 720px;
+    margin: 16px;
+    padding: 16px;
+    transition: 300ms ease;
+    filter: grayscale(0.5); }
+    @media screen and (min-width: 481px) and (max-width: 1024px) {
+      .Portfolio .Project {
+        margin-bottom: 64px; } }
+    @media screen and (min-width: 1025px) {
+      .Portfolio .Project {
+        margin: 32px; } }
+    .Portfolio .Project a {
+      text-decoration: none;
+      color: inherit; }
+    .Portfolio .Project img {
+      width: 100%;
+      margin: auto; }
+    .Portfolio .Project h3 {
       font-family: "Montserrat", sans-serif;
-      font-weight: 800;
-      font-size: 30pt;
-      margin-bottom: 10vh; } }
+      font-size: 140%; }
+    .Portfolio .Project:hover {
+      transform: rotate(0deg) scale(1.012) !important;
+      filter: grayscale(0);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16); }
+
+.Footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 16px;
+  padding-bottom: 64px; }
 
 h1 {
   margin: 0; }
+
+p {
+  color: rgba(40, 40, 40, 0.6); }
 
 /*# sourceMappingURL=App.css.map */

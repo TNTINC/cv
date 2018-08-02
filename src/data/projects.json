@@ -1,0 +1,26 @@
+[
+  {
+    "name": "My portfolio",
+    "image": "/portfolio.png",
+    "description": "My portfolio, published on my portfolio",
+    "link": "https://www.finni.is/"
+  },
+  {
+    "name": "Echidna",
+    "description": "A little thingy made to explore anime.js",
+    "image": "/echidna.png",
+    "link": "https://tntinc.github.io/echidna"
+  },
+  {
+    "name": "Article test",
+    "description": "Testing detail pages",
+    "image": "https://placekitten.com/700/525",
+    "link": "https://www.eyebleach.me/kittens/"
+  },
+  {
+    "name": "Placeholder",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "image": "https://placekitten.com/700/525",
+    "link": "https://www.eyebleach.me/kittens/"
+  }
+]

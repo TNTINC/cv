@@ -1,25 +1,28 @@
 $theme: #ff5341;
 $white: #fffefe;
-$black: rgba(50, 30, 30, 0.8);
+$black: rgba(40, 30, 30, 0.8);
+$grey:  rgba(40, 40, 40, 0.6);
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:800|Open+Sans');
 
 $heading-font: "Montserrat", sans-serif;
 
+@import "shadow";
+
 @mixin media($media) {
-  $small-break: 480px;
-  $large-break: 1024px;
-  @if $media == small {
-    @media screen and (max-width: $small-break) {
-      @content;
-    }
-  } @else if $media == medium {
-    @media screen and (min-width: $small-break + 1) and (max-width: $large-break) {
-      @content;
-    }
-  } @else if $media == large {
-    @media screen and (min-width: $large-break + 1) {
-      @content;
+$small-break: 480px;
+$large-break: 1024px;
+@if $media == small {
+  @media screen and (max-width: $small-break) {
+    @content;
+  }
+} @else if $media == medium {
+  @media screen and (min-width: $small-break + 1) and (max-width: $large-break) {
+    @content;
+  }
+} @else if $media == large {
+  @media screen and (min-width: $large-break + 1) {
+    @content;
     }
   }
 }
@@ -35,81 +38,190 @@ body {
 }
 
 .Container {
-  width: 100%;
+  display: grid;
+  max-width: 100vw;
 }
+
 .Header {
   position: fixed;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  @include media(small) {
-    flex-direction: column;
+  z-index: 1;
+  
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  grid-template-rows: 60px;
+  grid-template-areas: "Logo Nav";
+  
+  @include media(medium) {
+    grid-template-columns: 1fr 64px 3fr 1fr;
+    grid-template-areas: ". Logo Nav .";
   }
-  .spacer {
-    flex: 1 1;
-    @include media(small) {
-      display: none;
-    }
+  @include media(large) {
+    grid-template-columns: 1fr 64px 3fr 1fr;
+    grid-template-areas: ". Logo Nav .";
   }
+
+  background: rgba(255, 255, 255, 1);
+
   .title {
-    background: $theme;
-    padding: 16px 32px 16px;
-    color: $white;
-    font-family: $heading-font;
-    font-weight: 800;
-    font-size: 22pt;
-    @include media(small) {
-      font-size: 18pt;
-      justify-content: flex-start;
-    }
+    grid-area: Logo;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background: $theme;
+    color: $white;
+
+    font-family: $heading-font;
+    font-weight: 800;
+    font-size: 22pt;
+
+    @include media(small) {
+      font-size: 18pt;
+    }
+
+    padding: 16px 24px 16px;
   }
+
   .nav {
+    grid-area: Nav;
+
+    flex: 2 0;
+
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    flex: 2 0;
+
     @include media(small) {
       display: none;
     }
+
     ul {
-      margin: 0;
       display: flex;
       flex-direction: row;
-      align-items: items;
+      align-items: right;
+
+      margin: 0;
+      height: 100%;
+
       list-style: none;
-      li {
-        padding: 24px;
-        height: auto;
+
+      a {
+        height: 100%;
+        width: 100%;
+
+        background: white;
+        color: $black;
+        text-decoration-line: none;
+
+        transition: 120ms ease-out;
+
+        &:hover {
+          background: $theme;
+          color: $white;
+        }
+
+        li {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 16px;
+        }
       }
     }
   }
 }
-.Intro {
+
+
+.Bio {
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  .name {
+  flex-direction: column;
+  margin-top: 96px;
+  margin-bottom: 32px;
+  margin-left: 16px;
+
+  @include media(medium) {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include media(large) {
+    max-width: 960px;
+    margin-top: 128px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.Portfolio {
+  max-width: 100vw;
+  display: grid;
+  margin: auto;
+
+  grid-template-columns: 1fr;
+
+  @include media(large) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .Project {
+    @include card(1);
+    max-width: 720px;
+    margin: 16px;
+    padding: 16px;
+    @include media(medium) {
+      margin-bottom: 64px;
+    }
     @include media(large) {
-      padding: 48px;
-      background: $theme;
-      color: white;
+      margin: 32px;
+    }
+
+    transition: 300ms ease;
+    filter: grayscale(0.5);
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      width: 100%;
+      margin: auto;
+    }
+    
+    h3 {
       font-family: $heading-font;
-      font-weight: 800;
-      font-size: 30pt;
-      margin-bottom: 10vh;
+      font-size: 140%;
+    }
+
+    &:hover {
+      transform: rotate(0deg) scale(1.012)  !important;
+      filter: grayscale(0);
+      @include card(2);
     }
   }
 }
-.Bio {
-}
-.Contact {
+
+.Footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 64px;
+  padding-top: 16px;
+  padding-bottom: 64px;
 }
 
 h1 {
   margin: 0;
 }
+
+p {
+  color: $grey;
+} 
