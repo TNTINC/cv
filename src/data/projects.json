@@ -9,10 +9,12 @@
     "name": "Echidna",
     "description": "A little thingy made to explore anime.js",
     "image": "/echidna.png",
-    "link": "https://tntinc.github.io/echidna"
+    "link": "https://tntinc.github.io/echidna",
+    "body":
+      "This was just a quick script I threw together when I first found [anime.js](http://animejs.com/), I quite like the effect of text being animated in this manner, and would like to generalize it at some point."
   },
   {
-    "name": "Article test",
+    "name": "Project test",
     "description": "Testing detail pages",
     "image": "https://placekitten.com/700/525",
     "link": "https://www.eyebleach.me/kittens/"
