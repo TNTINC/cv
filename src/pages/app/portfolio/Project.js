@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+import { Link } from "react-router-dom";
+
 class Project extends Component {
   constructor(props) {
     super(props);
@@ -15,11 +17,11 @@ class Project extends Component {
         className="Project"
         style={{ transform: `rotate(${this.state.rotation}deg)` }}
       >
-        <a href={this.props.link}>
+        <Link to={"detail/" + this.props.name}>
           <img src={this.props.image} alt={this.props.name} />
           <h3> {this.props.name} </h3>
           <p> {this.props.description} </p>
-        </a>
+        </Link>
       </div>
     );
   }

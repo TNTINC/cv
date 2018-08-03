@@ -42,7 +42,9 @@ body {
 .Container {
   display: grid;
   max-width: 100vw;
-  grid-template-rows: $header-height 1fr;
+  grid-template-rows: $header-height auto auto;
+  grid-gap: 16px;
+  gap: 64px;
 }
 
 .Header {
@@ -164,23 +166,25 @@ body {
   max-width: 100vw;
   display: grid;
   margin: auto;
-
+  grid-row: 2;
   grid-template-columns: 1fr;
+  grid-gap: 32px;
 
   @include media(large) {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 64px;
   }
 
   .Project {
     @include card(1);
     max-width: 720px;
-    margin: 16px;
+    //margin: 16px;
     padding: 16px;
     @include media(medium) {
-      margin-bottom: 64px;
+      //margin-bottom: 64px;
     }
     @include media(large) {
-      margin: 32px;
+      //margin: 32px;
     }
 
     transition: 300ms ease;
@@ -229,7 +233,7 @@ body {
 }
 
 .Footer {
-  grid-row: -1;
+  grid-row: 3;
   width: 100%;
   display: flex;
   flex-direction: column;

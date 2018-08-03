@@ -11,7 +11,9 @@ body {
 .Container {
   display: grid;
   max-width: 100vw;
-  grid-template-rows: 60px 1fr; }
+  grid-template-rows: 60px auto auto;
+  grid-gap: 16px;
+  gap: 64px; }
 
 .Header {
   position: fixed;
@@ -102,23 +104,19 @@ body {
   max-width: 100vw;
   display: grid;
   margin: auto;
-  grid-template-columns: 1fr; }
+  grid-row: 2;
+  grid-template-columns: 1fr;
+  grid-gap: 32px; }
   @media screen and (min-width: 1025px) {
     .Portfolio {
-      grid-template-columns: 1fr 1fr; } }
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 64px; } }
   .Portfolio .Project {
     box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
     max-width: 720px;
-    margin: 16px;
     padding: 16px;
     transition: 300ms ease;
     filter: grayscale(0.5); }
-    @media screen and (min-width: 481px) and (max-width: 1024px) {
-      .Portfolio .Project {
-        margin-bottom: 64px; } }
-    @media screen and (min-width: 1025px) {
-      .Portfolio .Project {
-        margin: 32px; } }
     .Portfolio .Project a {
       text-decoration: none;
       color: inherit; }
@@ -149,7 +147,7 @@ body {
     padding: 8px 16px 8px 8px; }
 
 .Footer {
-  grid-row: -1;
+  grid-row: 3;
   width: 100%;
   display: flex;
   flex-direction: column;
