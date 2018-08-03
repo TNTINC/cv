@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import Project from "./Project.js";
+import Project from "./portfolio/Project.js";
 
-import projectlist from "./data/projects.json";
+import projectlist from "data/projects.json";
 
 class Portfolio extends Component {
   render() {
